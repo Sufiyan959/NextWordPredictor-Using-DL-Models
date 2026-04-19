@@ -54,7 +54,7 @@ print(next_word)
 | LSTM | ~480K | Medium | Medium | Medium | Sequence learning |
 | BiLSTM | ~960K | High | Slow | High | Bidirectional context |
 | GRU | ~360K | High | Fast | Medium | Efficient sequences |
-| Transformer | ~520K | Very High | Medium | High | Advanced sequences |
+
 
 ## Training Results
 
@@ -76,9 +76,7 @@ print(next_word)
 ![GRU Accuracy](assets/gru_accuracy.png)
 ![GRU Loss](assets/gru_loss.png)
 
-### Transformer
-![Transformer Accuracy](assets/transformer_accuracy.png)
-![Transformer Loss](assets/transformer_loss.png)
+
 
 ## Project Structure
 
@@ -94,7 +92,6 @@ NextWordPredictor/
 │   ├── lstm_model.py
 │   ├── bilstm_model.py
 │   ├── gru_model.py
-│   └── transformer_model.py
 ├── preprocessing/
 │   └── preprocess.py        # Data preprocessing
 ├── utils/
@@ -104,7 +101,6 @@ NextWordPredictor/
     ├── lstm.h5
     ├── bilstm.h5
     ├── gru.h5
-    ├── transformer.h5
     ├── tokenizer.pkl
     └── config.pkl
 ```
@@ -116,7 +112,7 @@ NextWordPredictor/
 Batch Size: 64
 Optimizer: Adam (lr=0.001)
 Loss: Categorical Crossentropy
-Epochs: RNN(25), LSTM(45), BiLSTM(55), GRU(45), Transformer(60)
+Epochs: RNN(25), LSTM(45), BiLSTM(55), GRU(45)
 
 # Model
 Embedding Dim: 128

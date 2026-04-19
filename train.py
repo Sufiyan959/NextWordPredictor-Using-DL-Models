@@ -4,7 +4,7 @@ import pickle
 from preprocessing.preprocess import preprocess_pipeline
 
 # CHANGE MODEL HERE
-MODEL_NAME = "rnn"   # rnn, lstm, bilstm, gru, transformer
+MODEL_NAME = "rnn"   # rnn, lstm, bilstm, gru
 
 
 # Import model dynamically
@@ -16,8 +16,6 @@ elif MODEL_NAME == "bilstm":
     from models.bilstm_model import build_model
 elif MODEL_NAME == "gru":
     from models.gru_model import build_model
-elif MODEL_NAME == "transformer":
-    from models.transformer_model import build_model
 else:
     raise ValueError("Invalid model name")
 

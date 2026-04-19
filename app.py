@@ -135,7 +135,6 @@ import pickle
 import os
 from tensorflow.keras.models import load_model
 from utils.predict import predict_next_word
-from models.transformer_model import TransformerBlock
 
 # Page config
 st.set_page_config(
@@ -166,14 +165,7 @@ def load_config():
 @st.cache_resource
 def load_selected_model(model_name):
     model_path = os.path.join("saved_models", f"{model_name}.h5")
-
-    if model_name == "transformer":
-        return load_model(
-            model_path,
-            custom_objects={"TransformerBlock": TransformerBlock}
-        )
-    else:
-        return load_model(model_path)
+    return load_model(model_path)
 
 # 🔹 Load accuracy
 @st.cache_resource
@@ -198,7 +190,7 @@ max_len = config["max_len"]
 
 model_name = st.selectbox(
     "Choose Model",
-    ["rnn", "lstm", "bilstm", "gru", "transformer"]
+    ["rnn", "lstm", "bilstm", "gru"]
 )
 
 # Load model
@@ -238,7 +230,7 @@ if st.button("Predict Next Word"):
 # ==============================
 st.subheader("📊 Model Accuracy Comparison")
 
-model_list = ["rnn", "lstm", "bilstm", "gru", "transformer"]
+model_list = ["rnn", "lstm", "bilstm", "gru"]
 
 acc_data = []
 
@@ -280,4 +272,4 @@ for m in model_list:
 # 🔹 Footer
 # ==============================
 st.markdown("---")
-st.caption("Built using RNN, LSTM, BiLSTM, GRU & Transformer 🚀")
+st.caption("Built using RNN, LSTM, BiLSTM & GRU ")
